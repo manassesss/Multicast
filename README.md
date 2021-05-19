@@ -1,6 +1,6 @@
 # Multicast
 This repository contain a solution to an exercise proposed by the professor in discipline of Distributed Systems.
-To this solution it was used Python 3.7.7
+In this solution it was used Python 3.7.7
 
 ## Exercise
 Development of a fault-tolerant application
