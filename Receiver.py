@@ -18,12 +18,12 @@ mreq = struct.pack('4sL', group, socket.INADDR_ANY)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 # Receive/respond loop
 while True:
-    print >>sys.stderr, '\nwaiting to receive message'
+    print('\nwaiting to receive message')
     data, address = sock.recvfrom(1024)
     
-    print >>sys.stderr, 'received %s bytes from %s' % (len(data), address)
-    print >>sys.stderr, data
+    print('received %s bytes from %s' % (len(data), address))
+    print(data)
 
-    print >>sys.stderr, 'sending acknowledgement to', address
+    print('sending acknowledgement to', address)
     sock.sendto('ack', address)
 
