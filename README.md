@@ -11,3 +11,7 @@ Servers must periodically exchange multicast messages with each other to verify 
 A compressed file containing the application's source code, file containing execution instructions and a report with details of how it was implemented and the results obtained must be sent.
 
 ## How to execute
+### The virtual machines
+The professor provided 4 virtual machines already configured. Those virtual machine was used in the [VirtualBox](https://www.virtualbox.org/). The version used in this work was 6.1.
+
+Before use directly the code in the virtual machines you need to config the share folders to use the folder that contains your codes. To do that, access the settings of the virtual machine and after click on tab Shared Folders and add the folder with your codes!
