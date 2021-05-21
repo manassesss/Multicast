@@ -10,8 +10,30 @@ Servers must periodically exchange multicast messages with each other to verify 
 
 A compressed file containing the application's source code, file containing execution instructions and a report with details of how it was implemented and the results obtained must be sent.
 
-## How to execute
-### The virtual machines
+## The virtual machines
 The professor provided 4 virtual machines already configured. Those virtual machine was used in the [VirtualBox](https://www.virtualbox.org/). The version used in this work was 6.1.
 
-Before use directly the code in the virtual machines you need to config the share folders to use the folder that contains your codes. To do that, access the settings of the virtual machine and after click on tab Shared Folders and add the folder with your codes!
+Before use directly the code in the virtual machines you need to config the share folders to use the folder that contains your codes. To do that, access the settings of the virtual machine and after click on tab Shared Folders and add the folder with your codes! Make sure that the build option is marked.
+
+All the machines used is this work had Ubuntu Operational System installed
+
+## Python
+The version used in this work was the 3.7.7 version. You can download Python [here](https://www.python.org/downloads/)
+
+### netifaces 0.10.9
+Netifaces is a package that we used inthis work to identify the IP Address of our machines. To install it, considering you have Python installed, use this command in your terminal:
+
+`pip install netifaces`
+
+You can read more about Netifaces [here](https://pypi.org/project/netifaces/)
+
+## How to execute
+
+Start the machines you are going to use, and execute, first, the Sender.py code:
+
+`python3 Sender.py`
+
+and after that, execute the Receiver.py in the other machines:
+
+`python3 Receiver.py`
+
