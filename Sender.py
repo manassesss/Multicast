@@ -6,7 +6,6 @@ import struct
 
 try:
     exp = input('Put the expression: ')
-    eval(exp)
 except:
     print("INVALID EXPRESSION")
 
