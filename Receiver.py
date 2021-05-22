@@ -1,9 +1,9 @@
 import socket
 import sys
 import struct
-import netifaces as ni
+#import netifaces as ni
 
-multicast_group = '224.3.29.71'
+multicast_group = '224.3.29.1'
 server_address = ('', 10000)
 
 # Create the socket
@@ -24,7 +24,10 @@ ip_list = []
 while True:
     print('\nwaiting to receive message')
     data, address = sock.recvfrom(1024)
-    del(ip_list[ip_list.index(address[0])])
+    try:
+        del(ip_list[ip_list.index(address[0])])
+    except:
+        pass
 
     #setting the servers to send and to answer requisition
     multicast_group_servers = ('224.0.0.1', 10001)
@@ -34,9 +37,9 @@ while True:
     sockServer.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl2)
     try:
         #setting sockets
-        sockServer.bind('', 10001)
-        group_2 = socket.inet_aton(multicast_group_servers[0])
-        mreq2 = struct.pack('4sL', group_2, socket.INADDR_ANY)
+        sockServer.bind(('', 10001))
+        #group_2 = socket.inet_aton(multicast_group_servers[0])
+        mreq2 = struct.pack('4sL', group, socket.INADDR_ANY)
         sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq2)
 
         #sending a message among the servers
@@ -55,14 +58,14 @@ while True:
         sockServer.close()
         
         #finding the server IP
-        ni.ifaddresses('enp0s3')
-        ip = ni.ifaddresses('enp0s3')[ni.AF_INET][0]['addr']
-        print('IP Address: ', ip)
+        #ni.ifaddresses('eth0s')
+        #ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+        #print('IP Address: ', ip)
 
-        if(min(ip_list)==int(ip.replace(".",""))):
-            #the answer of the requisition 
-            answer = str(eval(data.decode()))
-            sock.sendto(str.encode(answer), address) #sending the answer
+        #if(min(ip_list)==int(ip.replace(".",""))):
+        #the answer of the requisition 
+        answer = str(eval(data))
+        sock.sendto(str.encode(answer), address) #sending the answer
 
         ip_list =[]
 
