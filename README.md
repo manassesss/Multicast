@@ -20,13 +20,6 @@ All the machines used is this work had Ubuntu Operational System installed
 ## Python
 The version used in this work was the 3.7.7 version. You can download Python [here](https://www.python.org/downloads/)
 
-### netifaces 0.10.9
-Netifaces is a package that we used inthis work to identify the IP Address of our machines. To install it, considering you have Python installed, use this command in your terminal:
-
-`pip install netifaces`
-
-You can read more about Netifaces [here](https://pypi.org/project/netifaces/)
-
 ## How to execute
 
 Start the machines you are going to use, and execute, first, the Sender.py code:
