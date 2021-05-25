@@ -12,6 +12,7 @@ except:
 multicast_group = ('224.3.29.1', 10000)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+socket.timeout(5)
 ttl = struct.pack('b', 1)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
 
